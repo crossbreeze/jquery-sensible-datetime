@@ -1,0 +1,93 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+       More info: h5bp.com/b/378 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Sensible DateTime | jQuery Plugin</title>
+  <meta name="description" content="jQuery plugin that makes it easy to format ISO datetime into something sensible">
+  <meta name="author" content="Jaewoong Kim, jwoongkim@gmail.com, http://jwoongkim.com">
+
+  <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
+
+  <style>
+    html, body, div, form, p,
+    code, pre { margin: 0; padding: 0; border: 0; vertical-align: baseline; }
+
+    body { font: 16px/1.5 sans-serif; background: #eee; }
+    a { color: #C62926; text-decoration: none; }
+    a:hover, a:focus, a:active { text-decoration: underline; }
+    h1 { margin: 0 0 0.5em; font-size: 36px; }
+    h2 { margin: 0 0 0.75em; font-size: 21px; }
+    h3 { margin: 0 0 0.333em; font-size: 16px; font-weight: normal; }
+    p { margin: 0 0 1.333em; }
+    em { font-style: italic; }
+    table { border-collapse: separate; border-spacing: 0; margin: 0; vertical-align: middle; }
+    th { font-weight: bold; }
+    th, td { padding: 5px 25px 5px 5px; text-align: left; vertical-align: middle; }
+    pre, code { font-family: monospace, sans-serif; font-size: 1em; color:#080; }
+
+    .container { position:relative; overflow:hidden; width: 600px; padding: 40px 60px; border: 1px solid #ccc; margin: 40px auto 20px; background: #fff; -webkit-box-shadow: 0 0 15px rgba(0,0,0,0.1); -moz-box-shadow: 0 0 15px rgba(0,0,0,0.1); box-shadow: 0 0 15px rgba(0,0,0,0.1); }
+    .container pre,
+    .container .prettyprint { padding: 0; border: 0; margin: 0 0 20px; font-size: 13px; background: #fff; }
+    .ribbon { position: absolute; top: -1px; right: -1px; opacity: 0.9; }
+    .ribbon:hover, .ribbon:focus, .ribbon:active { opacity: 1; }
+    .ribbon img { display: block; border: 0; }
+    .header { padding-right:80px; }
+    .section { margin: 40px 0 20px; }
+    .example { margin: 10px 0 20px; }
+    .example p { margin: 0; padding: 0 }
+    .example abbr,
+    .example time { color: #999; }
+    .footer { margin: 20px 0 50px; font-size: 11px; color: #666; text-align: center; }
+    .footer a { color: #666; }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <a class="ribbon" href="https://github.com/crossbreeze/jquery-sensible-datetime" target="_blank"><img src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+    
+    <div class="header">
+      <h1>Sensible DateTime</h1>
+      <p><a href="https://github.com/crossbreeze/jquery-sensible-datetime" title="GitHub repository" target="_blank">Sensible DateTime</a> is a jQuery plugin that makes it easy to format ISO datetime into something sensible <strong>as you see fit</strong>.</p>
+    </div>
+    
+    <div class="section">
+      <h2>Intro</h2>
+      <p>There are a handful of Javascript libraries that convert date on your page to relative time or format them in a kinda predefined way.</p>
+      <p>Sensible DateTime provides more flexibility according to your specific needs and context.</p>
+    </div>
+    
+    <div class="section">
+      <h2>Got something?</h2>
+      <p>If you have any question or feedback, drop me an email at <a href="mailto:jwoongkim@gmail.com">jwoongkim@gmail.com</a>.</p>
+      <p>If there is a bug or problem, create a issue at <a href="https://github.com/crossbreeze/jquery-sensible-datetime" title="GitHub repository" target="_blank">GitHub</a> or fork it and send a pull request.</p>
+    </div>
+
+    <div class="section">
+      <h2>License</h2>
+      <p><a href="http://www.opensource.org/licenses/mit-license.php" target="_blank">MIT License</a></p>
+    </div>
+
+  </div>
+    
+  <div class="footer">
+    <a href="https://github.com/crossbreeze/jquery-sensible-datetime" title="GitHub repository" target="_blank">Sensible DateTime</a> by <a href="http://jwoongkim.com" title="Jaewoong Kim's sandbox" target="_blank">Jaewoong Kim</a>.
+  </div>
+  
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.4.min.js"><\/script>')</script>  
+</body>
+</html>
