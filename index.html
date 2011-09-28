@@ -49,8 +49,7 @@
     .section { margin: 40px 0 20px; }
     .example { margin: 10px 0 20px; }
     .example p { margin: 0; padding: 0 }
-    .example abbr,
-    .example time { color: #999; }
+    .datetime { color: #777; }
     .footer { margin: 20px 0 50px; font-size: 11px; color: #666; text-align: center; }
     .footer a { color: #666; }
   </style>
@@ -70,105 +69,94 @@
     </div>
     
     <div class="section">
-      <h2>Intro</h2>
+      <h2>Introduction</h2>
       <p>There are a handful of Javascript libraries that convert date on your page to relative time or format them. However, they are usually set in their predefined way.</p>
-      <p>Sensible DateTime provides more flexibility that helps format them according to your specific needs and context.</p>
+      <p>Sensible DateTime provides more flexibility that helps display date and time on the website according to your specific needs and context.</p>
     </div>
     
     <div class="section">
       <h2>Example</h2>
       
-      <div id="original" class="example">
-        <h3>Original markups</h3>
-        <pre class="prettyprint"><code>&lt;p&gt;You opened this page &lt;abbr class=&quot;datetime opened&quot;&gt;opened time&lt;/abbr&gt;.&lt;!-- dynamically generated --&gt;&lt;/p&gt;<br/>&lt;p&gt;Someone posted something &lt;time class=&quot;datetime&quot; datetime=&quot;2011-09-27T15:40:00&quot;&gt;2011, Sep 27th&lt;/time&gt;&lt;/p&gt;<br/>&lt;p&gt;John shared his photo &lt;time class=&quot;datetime&quot; datetime=&quot;2011-09-26T11:42:11&quot;&gt;9-26-2011&lt;/time&gt;&lt;/p&gt;<br/>&lt;p&gt;Jane closed issue 12 &lt;time class=&quot;datetime&quot; datetime=&quot;2011-09-21T02:27:42&quot;&gt;2011, September 21&lt;/time&gt;&lt;/p&gt;<br/>&lt;p&gt;Harry started using jQuery &lt;abbr class=&quot;datetime&quot; title=&quot;2011-08-12T14:51:03&quot;&gt;Aug 12&lt;/abbr&gt;&lt;/p&gt;<br/>&lt;p&gt;Sent an email &lt;time class=&quot;datetime&quot; datetime=&quot;2001-12-25T11:21:53&quot;&gt;2011 12/25&lt;/time&gt;&lt;/p&gt;<br/>&lt;p&gt;My birthday is &lt;abbr class=&quot;datetime&quot; title=&quot;1984-05-15T00:00:00&quot;&gt;May 15th, 1984&lt;/abbr&gt;&lt;/p&gt;</code></pre>
+      <div class="example">
+        <h3>Markup</h3>
+        <pre class="prettyprint"><code>&lt;p&gt;You opened this page &lt;abbr class=&quot;datetime opened&quot;&gt;opened time&lt;/abbr&gt;.&lt;!-- dynamically generated --&gt;&lt;/p&gt;<br/>&lt;p&gt;Someone posted something &lt;time class=&quot;datetime&quot; datetime=&quot;2011-09-27T15:40:00&quot;&gt;2011, Sep 27th&lt;/time&gt;&lt;/p&gt;<br/>&lt;p&gt;John shared his photo &lt;time class=&quot;datetime&quot; datetime=&quot;2011-09-26T11:42:11&quot;&gt;9-26-2011&lt;/time&gt;&lt;/p&gt;<br/>&lt;p&gt;Jane closed issue 12 &lt;time class=&quot;datetime&quot; datetime=&quot;2011-09-21T02:27:42&quot;&gt;2011, September 21&lt;/time&gt;&lt;/p&gt;<br/>&lt;p&gt;Harry started using jQuery &lt;abbr class=&quot;datetime&quot; title=&quot;2011-08-12T14:51:03&quot;&gt;Aug 12&lt;/abbr&gt;&lt;/p&gt;<br/>&lt;p&gt;Sent an email &lt;time class=&quot;datetime&quot; datetime=&quot;2001-12-25T11:21:53&quot;&gt;2011 12/25&lt;/time&gt;&lt;/p&gt;<br/>&lt;p&gt;I was born &lt;abbr class=&quot;datetime&quot; title=&quot;1984-05-15T00:00:00&quot;&gt;May 15th, 1984&lt;/abbr&gt;&lt;/p&gt;</code></pre>
       </div>
       
       <div id="style1" class="example">
-        <h3>Style #1 (default)</h3>
+        <h3>Turns into this by default</h3>
         <p>You opened this page <abbr class="datetime opened">opened time</abbr>.<!-- dynamically generated --></p>
         <p>Someone posted something <time class="datetime" datetime="2011-09-27T15:40:00">2011, Sep 27th</time></p>
         <p>John shared his photo <time class="datetime" datetime="2011-09-26T11:42:11">9-26-2011</time></p>
         <p>Jane closed issue 12 <time class="datetime" datetime="2011-09-21T02:27:42">2011, September 21</time></p>
         <p>Harry started using jQuery <abbr class="datetime" title="2011-08-12T14:51:03">Aug 12</abbr></p>
         <p>Sent an email <time class="datetime" datetime="2001-12-25T11:21:53">2011 12/25</time></p>
-        <p>My birthday is <abbr class="datetime" title="1984-05-15T00:00:00">May 15th, 1984</abbr></p>
+        <p>I was born <abbr class="datetime" title="1984-05-15T00:00:00">May 15th, 1984</abbr></p>
       </div>
       
-      <p>With different options you can change how they look</p>
-      
-      <div id="style2" class="example">
-        <h3>Style #2</h3>
-        <p>You opened this page <abbr class="datetime opened">less than an hour ago</abbr>.<!-- dynamically generated --></p>
-        <p>Someone posted something <time class="datetime" datetime="2011-09-27T15:40:00">6 hours ago</time></p>
-        <p>John shared his photo <time class="datetime" datetime="2011-09-26T11:42:11">1 days ago</time></p>
-        <p>Jane closed issue 12 <time class="datetime" datetime="2011-09-21T02:27:42">6 days ago</time></p>
-        <p>Harry started using jQuery <abbr class="datetime" title="2011-08-12T14:51:03">2011 08</abbr></p>
-        <p>Sent an email <time class="datetime" datetime="2001-12-25T11:21:53">2001 12</time></p>
-        <p>My birthday is <abbr class="datetime" title="1984-05-15T00:00:00">1984 05</abbr></p>
-        <pre class="prettyprint"><code>var options2 = {<br/>  pastMask: '%yyyy %mm',<br/>  masks: [<br/>    {<br/>      distance: 3600,<br/>      mask: 'less than an hour ago'<br/>    },<br/>    {<br/>      distance: 7200,<br/>      mask: 'an hour ago'<br/>    },<br/>    {<br/>      distance: 86400,<br/>      mask: '%xh hours ago'<br/>    },<br/>    {<br/>      distance: 2592000,<br/>      mask: '%xd days ago'<br/>    }<br/>  ]<br/>};<br/></code></pre>
-      </div>
-      
-      <div id="style3" class="example">
-        <h3>Style #3</h3>
-        <p>You opened this page <abbr class="datetime opened">Sep 27</abbr>.<!-- dynamically generated --></p>
-        <p>Someone posted something <time class="datetime" datetime="2011-09-27T15:40:00">Sep 27</time></p>
-        <p>John shared his photo <time class="datetime" datetime="2011-09-26T11:42:11">Sep 26</time></p>
-        <p>Jane closed issue 12 <time class="datetime" datetime="2011-09-21T02:27:42">Sep 21</time></p>
-        <p>Harry started using jQuery <abbr class="datetime" title="2011-08-12T14:51:03">Aug 12</abbr></p>
-        <p>Sent an email <time class="datetime" datetime="2001-12-25T11:21:53">9 years ago</time></p>
-        <p>My birthday is <abbr class="datetime" title="1984-05-15T00:00:00">27 years ago</abbr></p>
-        <pre class="prettyprint"><code>var options3 = {<br/>  pastMask: '%xy years ago',<br/>  masks: [<br/>    {<br/>      distance: 31536000,<br/>      mask: '%mmm %d'<br/>    },<br/>    {<br/>      distance: 63072000,<br/>      mask: 'about an year'<br/>    }<br/>  ]<br/>};</code></pre>
-      </div>
-      
+      <p>
+        <div>However, you can change how they are displayed with different options.</div>
+        <a id="option1" href="#">Option 1</a> (Relativity rules) | <a id="option2" href="#">Option 2</a> (Minimalist)
+      </p>
     </div>
     
     <div class="section">
       <h2>How to use</h2>
-      <p>Download latest version <a href="https://github.com/crossbreeze/jquery-sensible-datetime/raw/master/jquery-sensible-datetime.js">here</a> (last updated <time class="datetime updated" datetime="2011-09-27T22:10:56.721Z">2011, Sep 27th</time>)</p>
+      <p>Download latest version <a href="https://github.com/crossbreeze/jquery-sensible-datetime/raw/master/jquery-sensible-datetime.js">here</a> (last updated <time class="datetime" datetime="2011-09-27T22:10:56.721Z">2011, Sep 27th</time>)</p>
       <p></p>
       
-      <p>If you use tags other than <code>time</code> to markup the datetime. The tag should have ISO8601 datetime string as the value of title attribute.</p>
+      <p>If you use tags other than <code>time</code> to markup the datetime. The tag should have <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601</a> datetime string as the value of title attribute.</p>
       <p>HTML5 introduced a new tag called <code>time</code> that has datetime attribute. You can use the new time tag with ISO8601 datetime string as the value of datetime attribute.</p>
       
-      <p>Optionally, you can pass an object to override the default settings.</p>
-      <ul class="options">
-        <li class="option">refreshRate: how often do auto-update in milliseconds</li>
-        <li class="option">pastMask: used for any datetime that is more past than a year (by default) or what you specified</li>
-        <li class="option">futureMask: used for any datetime that is in future</li>
-        <li class="option">masks: array of objects that specify the distance of seconds from the current time and how to display datetime within that distance</li>
+      <p>Once you are ready, call the plugin like this <pre class="prettyprint"><code>$(function() {<br/>  $('.datetime').sensible();<br/>});</code></pre></p>
+      
+      <p>Optionally, you can pass an object to override the default setting.</p>
+      <ul>
+        <li>shortDayNames: array of short names for days</li>
+        <li>longDayNames: array of long names for days</li>
+        <li>shortMonthNames: array of short names for months</li>
+        <li>longMonthNames: array of long names for months</li>
+        <li>refreshRate: how often do auto-update in milliseconds</li>
+        <li>pastMask: used for any datetime that is more past than a year (by default) or what you specified</li>
+        <li>futureMask: used for any datetime that is in the future</li>
+        <li>masks: an array of objects that specify a distance (distance of seconds from the current time) and a mask (how to display datetime within that distance)</li>
       </ul>
       
-      <p>You can use any combination of flags from the list below to specify how you want to display datetime in your mask string. Or none, if you don't want to :(</p>
-      <ul class="options">
-        <li class="option">%d - the day of the month (1-31)</li>
-        <li class="option">%dd - the day of the month (00-31)</li>
-        <li class="option">%ddd - the short name of the day (Mon - Sun)</li>
-        <li class="option">%dddd - the long name of the day (Monday - Sunday)</li>
-        <li class="option">%m - the month (1 - 12)</li>
-        <li class="option">%mm - the month (01 - 12)</li>
-        <li class="option">%mmm - the short name of the month (Jan - Dec)</li>
-        <li class="option">%mmmm - the long name of the month (January - December)</li>
-        <li class="option">%yy - the year (00 - 99)</li>
-        <li class="option">%yyyy - the year (0000 - 9999)</li>
-        <li class="option">%h - the hour (0 - 12)</li>
-        <li class="option">%hh - the hour (00 - 12)</li>
-        <li class="option">%H - the hour (0 - 24)</li>
-        <li class="option">%HH - the hour (00 - 12)</li>
-        <li class="option">%M - the minutes (0 - 59)</li>
-        <li class="option">%MM - the minutes (00 - 59)</li>
-        <li class="option">%s - the seconds (0 - 59)</li>
-        <li class="option">%ss - the seconds (00 - 59)</li>
-        <li class="option">%t - a or p</li>
-        <li class="option">%tt - am or pm</li>
-        <li class="option">%T - A or P</li>
-        <li class="option">%TT - AM or PM</li>
-        <li class="option">%S - Ordinal of the day (st, nd, rd, th)</li>
-        <li class="option">%xs - distance from now in seconds</li>
-        <li class="option">%xm - distance from now in minutes</li>
-        <li class="option">%xh - distance from now in hours</li>
-        <li class="option">%xd - distance from now in days</li>
-        <li class="option">%xy - distance from now in years</li>
+      <p>When your define your masks, you can use any combination of flags from the list below to specify which information you want to show. Or none, if you don't want to :(</p>
+      <ul>
+        <li>%d - the day of the month (1-31)</li>
+        <li>%dd - the day of the month (00-31)</li>
+        <li>%ddd - the short name of the day (Mon - Sun)</li>
+        <li>%dddd - the long name of the day (Monday - Sunday)</li>
+        <li>%m - the month (1 - 12)</li>
+        <li>%mm - the month (01 - 12)</li>
+        <li>%mmm - the short name of the month (Jan - Dec)</li>
+        <li>%mmmm - the long name of the month (January - December)</li>
+        <li>%yy - the year (00 - 99)</li>
+        <li>%yyyy - the year (0000 - 9999)</li>
+        <li>%h - the hour (0 - 12)</li>
+        <li>%hh - the hour (00 - 12)</li>
+        <li>%H - the hour (0 - 24)</li>
+        <li>%HH - the hour (00 - 12)</li>
+        <li>%M - the minutes (0 - 59)</li>
+        <li>%MM - the minutes (00 - 59)</li>
+        <li>%s - the seconds (0 - 59)</li>
+        <li>%ss - the seconds (00 - 59)</li>
+        <li>%t - a or p</li>
+        <li>%tt - am or pm</li>
+        <li>%T - A or P</li>
+        <li>%TT - AM or PM</li>
+        <li>%S - Ordinal of the day (st, nd, rd, th)</li>
+        <li>%xs - distance from now in seconds</li>
+        <li>%xm - distance from now in minutes</li>
+        <li>%xh - distance from now in hours</li>
+        <li>%xd - distance from now in days</li>
+        <li>%xy - distance from now in years</li>
       </ul>
+    </div>
+    
+    <div class="section">
+      <h2>Reference</h2>
+      <p>Here are the default setting values<pre class="prettyprint"><code>var settings = {<br/>  shortDayNames: [<br/>    'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'<br/>  ],<br/>  longDayNames: [<br/>    'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday',<br />    'Friday', 'Saturday'<br/>  ],<br/>  shortMonthNames: [<br/>    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',<br/>    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'<br/>  ],<br/>  longMonthNames: [<br/>    'January', 'February', 'March', 'April', 'May', 'June',<br/>    'July', 'August', 'September', 'October', 'November', 'December'<br/>  ],<br/>  refreshRate: 60000,<br/>  pastMask: '%mmmm %d, %yyyy at %h:%MM%tt',<br/>  futureMask: '%mmmm %d, %yyyy at %h:%MM%tt',<br/>  masks: [<br/>    {<br/>      // within a minute<br/>      distance: 60,<br/>      mask: 'just now'<br/>    },<br/>    {<br/>      // within 2 minutes<br/>      distance: 120,<br/>      mask: 'about a minute ago'<br/>    },<br/>    {<br/>      // within 1 hour<br/>      distance: 3600,<br/>      mask: '%xm minutes ago'<br/>    },<br/>    {<br/>      // within 2 hours<br/>      distance: 7200,<br/>      mask: 'about an hour ago'<br/>    },<br/>    {<br/>      // within 24 hours<br/>      distance: 86400,<br/>      mask: '%xh hours ago'<br/>    },<br/>    {<br/>      // within 48 hours<br/>      distance: 172800,<br/>      mask: 'Yesterday at %h:%MM%tt'<br/>    },<br/>    {<br/>      // within this year<br/>      distance: 31556926,<br/>      mask: '%mmmm %d at %h:%MM%tt'<br/>    }<br/>  ]<br/>};</code></pre></p>
     </div>
     
     <div class="section">
@@ -199,10 +187,76 @@
       return d.getUTCFullYear() + '-' + pad(d.getUTCMonth() + 1) + '-' + pad(d.getUTCDate()) + 'T' + pad(d.getUTCHours()) + ':' + pad(d.getUTCMinutes()) + ':' + pad(d.getUTCSeconds()) +' Z';
     }
     
+    var option1 = {
+      pastMask: '%xy years ago',
+      masks: [
+        {
+          distance: 60,
+          mask: 'less than a minute ago'
+        },
+        {
+          distance: 120,
+          mask: 'about a minute ago'
+        },
+        {
+          distance: 3600,
+          mask: '%xm minutes ago'
+        },
+        {
+          distance: 7200,
+          mask: 'about an hour ago'
+        },
+        {
+          distance: 86400,
+          mask: '%xh hours ago'
+        },
+        {
+          distance: 172800,
+          mask: 'about a day ago'
+        },
+        {
+          distance: 31556926,
+          mask: '%xd days ago'
+        },
+        {
+          distance: 63113852,
+          mask: 'about a year ago'
+        }
+      ]
+    };
+    
+    var option2 = {
+      pastMask: '%yyyy %mmm %d',
+      masks: [
+        {
+          distance: 43200,
+          mask: '%h:%MM%tt'
+        },
+        {
+          distance: 86400,
+          mask: 'Yesterday %h:%MM%tt'
+        },
+        {
+          distance: 31556926,
+          mask: '%mmm %d'
+        }
+      ]
+    };
+    
     $(function() {
       var now = new Date();
-      $('#style1 .opened').text(iso8601(now)).attr('title', iso8601(now));    
-      $('#style1 .datetime, .updated').sensible();
+      $('.opened').text(iso8601(now)).attr('title', iso8601(now));    
+      $('.datetime').sensible();
+      
+      $('#option1').click(function() {
+        $('.datetime').sensible(option1);
+        return false;
+      });
+      
+      $('#option2').click(function() {
+        $('.datetime').sensible(option2);
+        return false;
+      });
     });
   </script>
   
