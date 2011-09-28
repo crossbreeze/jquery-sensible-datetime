@@ -4,6 +4,8 @@
  *
  * Sensible DateTime is a jQuery plugin that makes it easy to format ISO datetime into something sensible as you see fit.
  *
+ * https://crossbreeze.github.com/jquery-sensible-datetime
+ * 
  * Licensed under the MIT:
  * http://www.opensource.org/licenses/mit-license.php
  *
