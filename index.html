@@ -18,7 +18,7 @@
 
   <!-- Mobile viewport optimized: j.mp/bplateviewport -->
   <meta name="viewport" content="width=device-width,initial-scale=1">
-
+  
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
 
   <style>
@@ -36,6 +36,7 @@
     table { border-collapse: separate; border-spacing: 0; margin: 0; vertical-align: middle; }
     th { font-weight: bold; }
     th, td { padding: 5px 25px 5px 5px; text-align: left; vertical-align: middle; }
+    pre { overflow: auto; }
     pre, code { font-family: monospace, sans-serif; font-size: 1em; color:#080; }
 
     .container { position:relative; overflow:hidden; width: 600px; padding: 40px 60px; border: 1px solid #ccc; margin: 40px auto 20px; background: #fff; -webkit-box-shadow: 0 0 15px rgba(0,0,0,0.1); -moz-box-shadow: 0 0 15px rgba(0,0,0,0.1); box-shadow: 0 0 15px rgba(0,0,0,0.1); }
@@ -53,9 +54,13 @@
     .footer { margin: 20px 0 50px; font-size: 11px; color: #666; text-align: center; }
     .footer a { color: #666; }
   </style>
+  
+  <link rel="stylesheet" href="http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css"> 
+  <script src="http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.js"></script>
+  
 </head>
 
-<body>
+<body onload="prettyPrint()">
   <div class="container">
     <a class="ribbon" href="https://github.com/crossbreeze/jquery-sensible-datetime" target="_blank"><img src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
     
@@ -66,8 +71,8 @@
     
     <div class="section">
       <h2>Intro</h2>
-      <p>There are a handful of Javascript libraries that convert date on your page to relative time or format them in a kinda predefined way.</p>
-      <p>Sensible DateTime provides more flexibility according to your specific needs and context.</p>
+      <p>There are a handful of Javascript libraries that convert date on your page to relative time or format them. However, they are usually set in their predefined way.</p>
+      <p>Sensible DateTime provides more flexibility that helps format them according to your specific needs and context.</p>
     </div>
     
     <div class="section">
@@ -75,27 +80,95 @@
       
       <div id="original" class="example">
         <h3>Original markups</h3>
-        <script src="https://gist.github.com/1246936.js?file=example.html"></script>
+        <pre class="prettyprint"><code>&lt;p&gt;You opened this page &lt;abbr class=&quot;datetime opened&quot;&gt;opened time&lt;/abbr&gt;.&lt;!-- dynamically generated --&gt;&lt;/p&gt;<br/>&lt;p&gt;Someone posted something &lt;time class=&quot;datetime&quot; datetime=&quot;2011-09-27T15:40:00&quot;&gt;2011, Sep 27th&lt;/time&gt;&lt;/p&gt;<br/>&lt;p&gt;John shared his photo &lt;time class=&quot;datetime&quot; datetime=&quot;2011-09-26T11:42:11&quot;&gt;9-26-2011&lt;/time&gt;&lt;/p&gt;<br/>&lt;p&gt;Jane closed issue 12 &lt;time class=&quot;datetime&quot; datetime=&quot;2011-09-21T02:27:42&quot;&gt;2011, September 21&lt;/time&gt;&lt;/p&gt;<br/>&lt;p&gt;Harry started using jQuery &lt;abbr class=&quot;datetime&quot; title=&quot;2011-08-12T14:51:03&quot;&gt;Aug 12&lt;/abbr&gt;&lt;/p&gt;<br/>&lt;p&gt;Sent an email &lt;time class=&quot;datetime&quot; datetime=&quot;2001-12-25T11:21:53&quot;&gt;2011 12/25&lt;/time&gt;&lt;/p&gt;<br/>&lt;p&gt;My birthday is &lt;abbr class=&quot;datetime&quot; title=&quot;1984-05-15T00:00:00&quot;&gt;May 15th, 1984&lt;/abbr&gt;&lt;/p&gt;</code></pre>
       </div>
       
-      <div class="example">
+      <div id="style1" class="example">
         <h3>Style #1 (default)</h3>
         <p>You opened this page <abbr class="datetime opened">opened time</abbr>.<!-- dynamically generated --></p>
         <p>Someone posted something <time class="datetime" datetime="2011-09-27T15:40:00">2011, Sep 27th</time></p>
         <p>John shared his photo <time class="datetime" datetime="2011-09-26T11:42:11">9-26-2011</time></p>
         <p>Jane closed issue 12 <time class="datetime" datetime="2011-09-21T02:27:42">2011, September 21</time></p>
-        <p>Harry started using jQuery <time class="datetime" datetime="2011-08-12T14:51:03">Aug 12</time></p>
+        <p>Harry started using jQuery <abbr class="datetime" title="2011-08-12T14:51:03">Aug 12</abbr></p>
+        <p>Sent an email <time class="datetime" datetime="2001-12-25T11:21:53">2011 12/25</time></p>
         <p>My birthday is <abbr class="datetime" title="1984-05-15T00:00:00">May 15th, 1984</abbr></p>
       </div>
       
+      <p>With different options you can change how they look</p>
+      
       <div class="example">
         <h3>Style #2</h3>
+        <p>You opened this page <abbr class="datetime opened">less than an hour ago</abbr>.<!-- dynamically generated --></p>
+        <p>Someone posted something <time class="datetime" datetime="2011-09-27T15:40:00">6 hours ago</time></p>
+        <p>John shared his photo <time class="datetime" datetime="2011-09-26T11:42:11">1 days ago</time></p>
+        <p>Jane closed issue 12 <time class="datetime" datetime="2011-09-21T02:27:42">6 days ago</time></p>
+        <p>Harry started using jQuery <abbr class="datetime" title="2011-08-12T14:51:03">2011 08</abbr></p>
+        <p>Sent an email <time class="datetime" datetime="2001-12-25T11:21:53">2001 12</time></p>
+        <p>My birthday is <abbr class="datetime" title="1984-05-15T00:00:00">1984 05</abbr></p>
+        <pre class="prettyprint"><code>var options2 = {<br/>  pastMask: '%yyyy %mm',<br/>  masks: [<br/>    {<br/>      distance: 3600,<br/>      mask: 'less than an hour ago'<br/>    },<br/>    {<br/>      distance: 7200,<br/>      mask: 'an hour ago'<br/>    },<br/>    {<br/>      distance: 86400,<br/>      mask: '%xh hours ago'<br/>    },<br/>    {<br/>      distance: 2592000,<br/>      mask: '%xd days ago'<br/>    }<br/>  ]<br/>};<br/></code></pre>
       </div>
       
       <div class="example">
         <h3>Style #3</h3>
+        <p>You opened this page <abbr class="datetime opened">Sep 27</abbr>.<!-- dynamically generated --></p>
+        <p>Someone posted something <time class="datetime" datetime="2011-09-27T15:40:00">Sep 27</time></p>
+        <p>John shared his photo <time class="datetime" datetime="2011-09-26T11:42:11">Sep 26</time></p>
+        <p>Jane closed issue 12 <time class="datetime" datetime="2011-09-21T02:27:42">Sep 21</time></p>
+        <p>Harry started using jQuery <abbr class="datetime" title="2011-08-12T14:51:03">Aug 12</abbr></p>
+        <p>Sent an email <time class="datetime" datetime="2001-12-25T11:21:53">Dec 25, 2001</time></p>
+        <p>My birthday is <abbr class="datetime" title="1984-05-15T00:00:00">May 15, 1984</abbr></p>
+        <pre class="prettyprint"><code><br/>var options3 = {<br/>  pastMask: '%mmm %d, %yyyy',<br/>  masks: [<br/>    {<br/>      distance: 31536000,<br/>      mask: '%mmm %d'<br/>    }<br/>  ]<br/>};<br/></code></pre>
       </div>
       
+    </div>
+    
+    <div class="section">
+      <h2>How to use</h2>
+      <p>Download latest version <a href="https://github.com/crossbreeze/jquery-sensible-datetime/raw/master/jquery-sensible-datetime.js">here</a> (last updated <time class="datetime" datetime="2011-09-27T22:10:56.721Z">2011, Sep 27th</time>)</p>
+      <p></p>
+      
+      <p>If you use tags other than <code>time</code> to markup the datetime. The tag should have ISO8601 datetime string as the value of title attribute.</p>
+      <p>HTML5 introduced a new tag called <code>time</code> that has datetime attribute. You can use the new time tag with ISO8601 datetime string as the value of datetime attribute.</p>
+      
+      <p>Optionally, you can pass an object to override the default settings.</p>
+      <ul class="options">
+        <li class="option">refreshRate: how often do auto-update in milliseconds</li>
+        <li class="option">pastMask: used for any datetime that is more past than a year (by default) or what you specified</li>
+        <li class="option">futureMask: used for any datetime that is in future</li>
+        <li class="option">masks: array of objects that specify the distance of seconds from the current time and how to display datetime within that distance</li>
+      </ul>
+      
+      <p>You can use any combination of flags from the list below to specify how you want to display datetime in your mask string. Or none, if you don't want to :(</p>
+      <ul class="options">
+        <li class="option">%d - the day of the month (1-31)</li>
+        <li class="option">%dd - the day of the month (00-31)</li>
+        <li class="option">%ddd - the short name of the day (Mon - Sun)</li>
+        <li class="option">%dddd - the long name of the day (Monday - Sunday)</li>
+        <li class="option">%m - the month (1 - 12)</li>
+        <li class="option">%mm - the month (01 - 12)</li>
+        <li class="option">%mmm - the short name of the month (Jan - Dec)</li>
+        <li class="option">%mmmm - the long name of the month (January - December)</li>
+        <li class="option">%yy - the year (00 - 99)</li>
+        <li class="option">%yyyy - the year (0000 - 9999)</li>
+        <li class="option">%h - the hour (0 - 12)</li>
+        <li class="option">%hh - the hour (00 - 12)</li>
+        <li class="option">%H - the hour (0 - 24)</li>
+        <li class="option">%HH - the hour (00 - 12)</li>
+        <li class="option">%M - the minutes (0 - 59)</li>
+        <li class="option">%MM - the minutes (00 - 59)</li>
+        <li class="option">%s - the seconds (0 - 59)</li>
+        <li class="option">%ss - the seconds (00 - 59)</li>
+        <li class="option">%t - a or p</li>
+        <li class="option">%tt - am or pm</li>
+        <li class="option">%T - A or P</li>
+        <li class="option">%TT - AM or PM</li>
+        <li class="option">%S - Ordinal of the day (st, nd, rd, th)</li>
+        <li class="option">%xs - distance from now in seconds</li>
+        <li class="option">%xm - distance from now in minutes</li>
+        <li class="option">%xh - distance from now in hours</li>
+        <li class="option">%xd - distance from now in days</li>
+        <li class="option">%xy - distance from now in years</li>
+      </ul>
     </div>
     
     <div class="section">
@@ -116,7 +189,7 @@
   </div>
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-  <script src="https://"></script>
+  <script src="https://github.com/crossbreeze/jquery-sensible-datetime/raw/master/jquery-sensible-datetime.js"></script>
   <script>
     function pad(n) {
       return n < 10 ? '0' + n : n;
@@ -128,8 +201,8 @@
     
     $(function() {
       var now = new Date();
-      $('.opened').text(iso8601(now)).attr('title', iso8601(now));    
-      $('.datetime').sensible();
+      $('#style1 .opened').text(iso8601(now)).attr('title', iso8601(now));    
+      $('#style1 .datetime').sensible();
     });
   </script>
 </body>
