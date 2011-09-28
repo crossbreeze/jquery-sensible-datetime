@@ -71,6 +71,34 @@
     </div>
     
     <div class="section">
+      <h2>Example</h2>
+      
+      <div id="original" class="example">
+        <h3>Original markups</h3>
+        <script src="https://gist.github.com/1246936.js?file=example.html"></script>
+      </div>
+      
+      <div class="example">
+        <h3>Style #1 (default)</h3>
+        <p>You opened this page <abbr class="datetime opened">opened time</abbr>.<!-- dynamically generated --></p>
+        <p>Someone posted something <time class="datetime" datetime="2011-09-27T15:40:00">2011, Sep 27th</time></p>
+        <p>John shared his photo <time class="datetime" datetime="2011-09-26T11:42:11">9-26-2011</time></p>
+        <p>Jane closed issue 12 <time class="datetime" datetime="2011-09-21T02:27:42">2011, September 21</time></p>
+        <p>Harry started using jQuery <time class="datetime" datetime="2011-08-12T14:51:03">Aug 12</time></p>
+        <p>My birthday is <abbr class="datetime" title="1984-05-15T00:00:00">May 15th, 1984</abbr></p>
+      </div>
+      
+      <div class="example">
+        <h3>Style #2</h3>
+      </div>
+      
+      <div class="example">
+        <h3>Style #3</h3>
+      </div>
+      
+    </div>
+    
+    <div class="section">
       <h2>Got something?</h2>
       <p>If you have any question or feedback, drop me an email at <a href="mailto:jwoongkim@gmail.com">jwoongkim@gmail.com</a>.</p>
       <p>If there is a bug or problem, create a issue at <a href="https://github.com/crossbreeze/jquery-sensible-datetime" title="GitHub repository" target="_blank">GitHub</a> or fork it and send a pull request.</p>
@@ -87,7 +115,22 @@
     <a href="https://github.com/crossbreeze/jquery-sensible-datetime" title="GitHub repository" target="_blank">Sensible DateTime</a> by <a href="http://jwoongkim.com" title="Jaewoong Kim's sandbox" target="_blank">Jaewoong Kim</a>.
   </div>
   
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.4.min.js"><\/script>')</script>  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+  <script src="https://"></script>
+  <script>
+    function pad(n) {
+      return n < 10 ? '0' + n : n;
+    }
+    
+    function iso8601(d) {
+      return d.getUTCFullYear() + '-' + pad(d.getUTCMonth() + 1) + '-' + pad(d.getUTCDate()) + 'T' + pad(d.getUTCHours()) + ':' + pad(d.getUTCMinutes()) + ':' + pad(d.getUTCSeconds()) +' Z';
+    }
+    
+    $(function() {
+      var now = new Date();
+      $('.opened').text(iso8601(now)).attr('title', iso8601(now));    
+      $('.datetime').sensible();
+    });
+  </script>
 </body>
 </html>
