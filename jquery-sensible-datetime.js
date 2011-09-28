@@ -47,7 +47,7 @@
       {
         // within a minute
         distance: 60,
-        mask: 'less than a minute ago'
+        mask: 'just now'
       },
       {
         // within 2 minutes
