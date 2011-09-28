@@ -96,7 +96,7 @@
       
       <p>With different options you can change how they look</p>
       
-      <div class="example">
+      <div id="style2" class="example">
         <h3>Style #2</h3>
         <p>You opened this page <abbr class="datetime opened">less than an hour ago</abbr>.<!-- dynamically generated --></p>
         <p>Someone posted something <time class="datetime" datetime="2011-09-27T15:40:00">6 hours ago</time></p>
@@ -108,23 +108,23 @@
         <pre class="prettyprint"><code>var options2 = {<br/>  pastMask: '%yyyy %mm',<br/>  masks: [<br/>    {<br/>      distance: 3600,<br/>      mask: 'less than an hour ago'<br/>    },<br/>    {<br/>      distance: 7200,<br/>      mask: 'an hour ago'<br/>    },<br/>    {<br/>      distance: 86400,<br/>      mask: '%xh hours ago'<br/>    },<br/>    {<br/>      distance: 2592000,<br/>      mask: '%xd days ago'<br/>    }<br/>  ]<br/>};<br/></code></pre>
       </div>
       
-      <div class="example">
+      <div id="style3" class="example">
         <h3>Style #3</h3>
         <p>You opened this page <abbr class="datetime opened">Sep 27</abbr>.<!-- dynamically generated --></p>
         <p>Someone posted something <time class="datetime" datetime="2011-09-27T15:40:00">Sep 27</time></p>
         <p>John shared his photo <time class="datetime" datetime="2011-09-26T11:42:11">Sep 26</time></p>
         <p>Jane closed issue 12 <time class="datetime" datetime="2011-09-21T02:27:42">Sep 21</time></p>
         <p>Harry started using jQuery <abbr class="datetime" title="2011-08-12T14:51:03">Aug 12</abbr></p>
-        <p>Sent an email <time class="datetime" datetime="2001-12-25T11:21:53">Dec 25, 2001</time></p>
-        <p>My birthday is <abbr class="datetime" title="1984-05-15T00:00:00">May 15, 1984</abbr></p>
-        <pre class="prettyprint"><code><br/>var options3 = {<br/>  pastMask: '%mmm %d, %yyyy',<br/>  masks: [<br/>    {<br/>      distance: 31536000,<br/>      mask: '%mmm %d'<br/>    }<br/>  ]<br/>};<br/></code></pre>
+        <p>Sent an email <time class="datetime" datetime="2001-12-25T11:21:53">9 years ago</time></p>
+        <p>My birthday is <abbr class="datetime" title="1984-05-15T00:00:00">27 years ago</abbr></p>
+        <pre class="prettyprint"><code>var options3 = {<br/>  pastMask: '%xy years ago',<br/>  masks: [<br/>    {<br/>      distance: 31536000,<br/>      mask: '%mmm %d'<br/>    },<br/>    {<br/>      distance: 63072000,<br/>      mask: 'about an year'<br/>    }<br/>  ]<br/>};</code></pre>
       </div>
       
     </div>
     
     <div class="section">
       <h2>How to use</h2>
-      <p>Download latest version <a href="https://github.com/crossbreeze/jquery-sensible-datetime/raw/master/jquery-sensible-datetime.js">here</a> (last updated <time class="datetime" datetime="2011-09-27T22:10:56.721Z">2011, Sep 27th</time>)</p>
+      <p>Download latest version <a href="https://github.com/crossbreeze/jquery-sensible-datetime/raw/master/jquery-sensible-datetime.js">here</a> (last updated <time class="datetime updated" datetime="2011-09-27T22:10:56.721Z">2011, Sep 27th</time>)</p>
       <p></p>
       
       <p>If you use tags other than <code>time</code> to markup the datetime. The tag should have ISO8601 datetime string as the value of title attribute.</p>
@@ -202,7 +202,7 @@
     $(function() {
       var now = new Date();
       $('#style1 .opened').text(iso8601(now)).attr('title', iso8601(now));    
-      $('#style1 .datetime').sensible();
+      $('#style1 .datetime, .updated').sensible();
     });
   </script>
 </body>
