@@ -1,6 +1,6 @@
 /*
  * sensible-datetime: a jQuery plugin, version: 0.0.1
- * Last modified: 09/26/2011
+ * Last modified: 10/12/2011
  *
  * Sensible DateTime is a jQuery plugin that makes it easy to format ISO datetime into something sensible as you see fit.
  *
@@ -12,6 +12,13 @@
  * Copyright (c) 2011, Jaewoong Kim (jwoongkim@gmail.com)
  */
 (function($) {
+	$.sensible = function (timestamp) {
+		if (typeof timestamp === 'string') {
+			timestamp = parse(timestamp);
+		}
+
+		return datetimeInWords(timestamp);
+	};
   
   $.fn.sensible= function(options) {
     if (options) {
