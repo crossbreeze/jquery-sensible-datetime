@@ -18,7 +18,7 @@
 
   <!-- Mobile viewport optimized: j.mp/bplateviewport -->
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  
+
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
 
   <style>
@@ -53,35 +53,35 @@
     .footer { margin: 20px 0 50px; font-size: 11px; color: #666; text-align: center; }
     .footer a { color: #666; }
   </style>
-  
-  <link rel="stylesheet" href="http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css"> 
+
+  <link rel="stylesheet" href="http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css">
   <script src="http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.js"></script>
-  
+
 </head>
 
 <body onload="prettyPrint()">
   <div class="container">
     <a class="ribbon" href="https://github.com/crossbreeze/jquery-sensible-datetime" target="_blank"><img src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
-    
+
     <div class="header">
       <h1>Sensible DateTime</h1>
       <p><a href="https://github.com/crossbreeze/jquery-sensible-datetime" title="GitHub repository" target="_blank">Sensible DateTime</a> is a jQuery plugin that makes it easy to format ISO datetime into something sensible <strong>as you see fit</strong>.</p>
     </div>
-    
+
     <div class="section">
       <h2>Introduction</h2>
       <p>There are a handful of Javascript libraries that convert date on your page to relative time or format them. However, they are usually set in their predefined way.</p>
       <p>Sensible DateTime provides more flexibility that helps display date and time on the website according to your specific needs and context.</p>
     </div>
-    
+
     <div class="section">
       <h2>Example</h2>
-      
+
       <div class="example">
         <h3>Markup</h3>
         <pre class="prettyprint"><code>&lt;p&gt;You opened this page &lt;abbr class=&quot;datetime opened&quot;&gt;opened time&lt;/abbr&gt;.&lt;!-- dynamically generated --&gt;&lt;/p&gt;<br/>&lt;p&gt;Someone posted something &lt;time class=&quot;datetime&quot; datetime=&quot;2011-09-27T15:40:00&quot;&gt;2011, Sep 27th&lt;/time&gt;&lt;/p&gt;<br/>&lt;p&gt;John shared his photo &lt;time class=&quot;datetime&quot; datetime=&quot;2011-09-26T11:42:11&quot;&gt;9-26-2011&lt;/time&gt;&lt;/p&gt;<br/>&lt;p&gt;Jane closed issue 12 &lt;time class=&quot;datetime&quot; datetime=&quot;2011-09-21T02:27:42&quot;&gt;2011, September 21&lt;/time&gt;&lt;/p&gt;<br/>&lt;p&gt;Harry started using jQuery &lt;abbr class=&quot;datetime&quot; title=&quot;2011-08-12T14:51:03&quot;&gt;Aug 12&lt;/abbr&gt;&lt;/p&gt;<br/>&lt;p&gt;Sent an email &lt;time class=&quot;datetime&quot; datetime=&quot;2001-12-25T11:21:53&quot;&gt;2011 12/25&lt;/time&gt;&lt;/p&gt;<br/>&lt;p&gt;I was born &lt;abbr class=&quot;datetime&quot; title=&quot;1984-05-15T00:00:00&quot;&gt;May 15th, 1984&lt;/abbr&gt;&lt;/p&gt;</code></pre>
       </div>
-      
+
       <div id="style1" class="example">
         <h3>Turns into this by default</h3>
         <p>You opened this page <abbr class="datetime opened">opened time</abbr>.<!-- dynamically generated --></p>
@@ -92,23 +92,23 @@
         <p>Sent an email <time class="datetime" datetime="2001-12-25T11:21:53">2011 12/25</time></p>
         <p>I was born <abbr class="datetime" title="1984-05-15T00:00:00">May 15th, 1984</abbr></p>
       </div>
-      
+
       <p>
         <div>However, you can change how they are displayed with different options.</div>
         <a id="option1" href="#">Option 1</a> (Relativity rules) | <a id="option2" href="#">Option 2</a> (Minimalist)
       </p>
     </div>
-    
+
     <div class="section">
       <h2>How to use</h2>
       <p>Download latest version <a href="https://github.com/crossbreeze/jquery-sensible-datetime/raw/master/jquery-sensible-datetime.js">here</a> (last updated <time class="datetime" datetime="2011-09-27T22:10:56.721Z">2011, Sep 27th</time>)</p>
       <p></p>
-      
+
       <p>If you use tags other than <code>time</code> to markup the datetime. The tag should have <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601</a> datetime string as the value of title attribute.</p>
       <p>HTML5 introduced a new tag called <code>time</code> that has datetime attribute. You can use the new time tag with ISO8601 datetime string as the value of datetime attribute.</p>
-      
+
       <p>Once you are ready, call the plugin like this <pre class="prettyprint"><code>$(function() {<br/>  $('.datetime').sensible();<br/>});</code></pre></p>
-      
+
       <p>Optionally, you can pass an object to override the default setting.</p>
       <ul>
         <li>shortDayNames: array of short names for days</li>
@@ -120,7 +120,7 @@
         <li>futureMask: used for any datetime that is in the future</li>
         <li>masks: an array of objects that specify a distance (distance of seconds from the current time) and a mask (how to display datetime within that distance)</li>
       </ul>
-      
+
       <p>When your define your masks, you can use any combination of flags from the list below to specify which information you want to show. Or none, if you don't want to :(</p>
       <ul>
         <li>%d - the day of the month (1-31)</li>
@@ -153,12 +153,12 @@
         <li>%xy - distance from now in years</li>
       </ul>
     </div>
-    
+
     <div class="section">
       <h2>Reference</h2>
       <p>Here are the default setting values<pre class="prettyprint"><code>var settings = {<br/>  shortDayNames: [<br/>    'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'<br/>  ],<br/>  longDayNames: [<br/>    'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday',<br />    'Friday', 'Saturday'<br/>  ],<br/>  shortMonthNames: [<br/>    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',<br/>    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'<br/>  ],<br/>  longMonthNames: [<br/>    'January', 'February', 'March', 'April', 'May', 'June',<br/>    'July', 'August', 'September', 'October', 'November', 'December'<br/>  ],<br/>  refreshRate: 60000,<br/>  pastMask: '%mmmm %d, %yyyy at %h:%MM%tt',<br/>  futureMask: '%mmmm %d, %yyyy at %h:%MM%tt',<br/>  masks: [<br/>    {<br/>      // within a minute<br/>      distance: 60,<br/>      mask: 'just now'<br/>    },<br/>    {<br/>      // within 2 minutes<br/>      distance: 120,<br/>      mask: 'about a minute ago'<br/>    },<br/>    {<br/>      // within 1 hour<br/>      distance: 3600,<br/>      mask: '%xm minutes ago'<br/>    },<br/>    {<br/>      // within 2 hours<br/>      distance: 7200,<br/>      mask: 'about an hour ago'<br/>    },<br/>    {<br/>      // within 24 hours<br/>      distance: 86400,<br/>      mask: '%xh hours ago'<br/>    },<br/>    {<br/>      // within 48 hours<br/>      distance: 172800,<br/>      mask: 'Yesterday at %h:%MM%tt'<br/>    },<br/>    {<br/>      // within this year<br/>      distance: 31556926,<br/>      mask: '%mmmm %d at %h:%MM%tt'<br/>    }<br/>  ]<br/>};</code></pre></p>
     </div>
-    
+
     <div class="section">
       <h2>Got something?</h2>
       <p>If you have any question or feedback, drop me an email at <a href="mailto:jwoongkim@gmail.com">jwoongkim@gmail.com</a>.</p>
@@ -171,22 +171,22 @@
     </div>
 
   </div>
-    
+
   <div class="footer">
     <a href="https://github.com/crossbreeze/jquery-sensible-datetime" title="GitHub repository" target="_blank">Sensible DateTime</a> by <a href="http://jwoongkim.com" title="Jaewoong Kim's sandbox" target="_blank">Jaewoong Kim</a>.
   </div>
-  
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
   <script src="https://github.com/crossbreeze/jquery-sensible-datetime/raw/master/jquery-sensible-datetime.js"></script>
   <script>
     function pad(n) {
       return n < 10 ? '0' + n : n;
     }
-    
+
     function iso8601(d) {
       return d.getUTCFullYear() + '-' + pad(d.getUTCMonth() + 1) + '-' + pad(d.getUTCDate()) + 'T' + pad(d.getUTCHours()) + ':' + pad(d.getUTCMinutes()) + ':' + pad(d.getUTCSeconds()) +' Z';
     }
-    
+
     var option1 = {
       pastMask: '%xy years ago',
       masks: [
@@ -224,7 +224,7 @@
         }
       ]
     };
-    
+
     var option2 = {
       pastMask: '%yyyy %mmm %d',
       masks: [
@@ -242,24 +242,24 @@
         }
       ]
     };
-    
+
     $(function() {
       var now = new Date();
-      $('.opened').text(iso8601(now)).attr('title', iso8601(now));    
+      $('.opened').text(iso8601(now)).attr('title', iso8601(now));
       $('.datetime').sensible();
-      
+
       $('#option1').click(function() {
         $('.datetime').sensible(option1);
         return false;
       });
-      
+
       $('#option2').click(function() {
         $('.datetime').sensible(option2);
         return false;
       });
     });
   </script>
-  
+
   <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
        mathiasbynens.be/notes/async-analytics-snippet -->
   <script>
@@ -268,6 +268,6 @@
     g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
     s.parentNode.insertBefore(g,s)}(document,'script'));
   </script>
-  
+
 </body>
 </html>
